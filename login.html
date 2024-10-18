@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="loginReg.css">
+    <title>Form Login</title>
+    <!-- Menambahkan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <section class="vh-100 d-flex justify-content-center align-items-center">
+        <div class="card" style="width: 400px;">
+            <div class="card-body">
+                <img src="imglogreg/2.png" class="card-img-top mb-3" alt="Logo">
+                <h2 class="text-center">Login</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username"><ion-icon name="person-outline"></ion-icon> Username</label>
+                        <input type="email" placeholder="Type your email" class="form-control" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><ion-icon name="lock-closed-outline"></ion-icon> Password</label>
+                        <input type="password" placeholder="Type your password" class="form-control" id="password" required>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember Me</label>
+                        <a href="#" class="float-right">Forget Password</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <div class="text-center mt-3">
+                        <p>Don't have an account? <a href="register.html" target="_self">Register</a></p>
+                    </div>
+                    <div id="error" style="color:red;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        // Hardcoded credentials
+        const users = {
+            "admin@example.com": "password123",
+            "user@example.com": "userpass"
+        };
+
+        // Menggunakan jQuery untuk menangani proses login
+        $(document).ready(function() {
+            $('#loginForm').on('submit', function(event) {
+                event.preventDefault(); // Mencegah form submit secara default
+
+                // Mendapatkan nilai input menggunakan jQuery
+                var username = $('#username').val();
+                var password = $('#password').val();
+                var errorElement = $('#error');
+
+                // Mengecek kredensial hardcoded
+                if (users[username] && users[username] === password) {
+                    alert('Login successful! Welcome, ' + username);
+                    errorElement.text(''); // Menghapus pesan error
+                    window.location.href = 'dashboar.html'; // Redirect ke halaman home
+                } else {
+                    errorElement.text('Login failed. Invalid credentials.');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

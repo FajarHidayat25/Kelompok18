@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="loginReg.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <title>Form Register</title>
+</head>
+
+<body>
+    <section class="vh-100 d-flex justify-content-center align-items-center">
+        <div class="card" style="width: 400px;">
+            <div class="card-body">
+                <h2 class="text-center">Register</h2>
+                <form id="registerForm" onsubmit="return checkPasswordMatch(event)"> 
+                    <div class="form-group">
+                        <label for="email"><ion-icon name="at-outline"></ion-icon> E-mail</label>
+                        <input type="email" placeholder="E-mail" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username"><ion-icon name="person-outline"></ion-icon>Nama Lengkap</label>
+                        <input type="text" placeholder="Nama Lengkap" class="form-control" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telepon"><ion-icon name="lock-closed-outline"></ion-icon>Nomer Telepon (WhatsApp)</label>
+                        <input type="text" placeholder="Telepon" class="form-control" id="telepon" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><ion-icon name="lock-closed-outline"></ion-icon>Buat Kata Sandi</label>
+                        <input type="password" placeholder="Kata Sandi" class="form-control" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword"><ion-icon name="lock-closed-outline"></ion-icon>Konfirmasi Kata Sandi</label>
+                        <input type="password" placeholder="Konfirmasi Kata Sandi" class="form-control" id="confirmPassword" required>
+                        <small id="passwordError" class="text-danger" style="display: none;">Kata sandi tidak cocok!</small>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="reg.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
